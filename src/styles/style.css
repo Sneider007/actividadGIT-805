@@ -1,60 +1,239 @@
-/* =========================
-   VARIABLES
-========================= */
+/* =========================================================
+   1. VARIABLES
+========================================================= */
 :root {
     --primary-color: #E8D9A0;
+    --primary-color-dark: #d8c583;
     --secondary-color: #6c757d;
+    --success-color: #198754;
     --dark-bg: #0A1123;
     --card-bg: #161b22;
+    --body-bg: #3A3E6C;
+    --feature-card-bg: #959BB5;
+    --cta-text-color: #DCDCF0;
+    --light-bg: #f8f9fa;
     --text-light: #f0f6fc;
     --text-muted: #8b949e;
+    --border-radius: 12px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --max-width: 1140px;
 }
 
-/* =========================
-   GLOBAL
-========================= */
+/* =========================================================
+   2. RESET Y BASE
+========================================================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #3A3E6C;
+    background-color: var(--body-bg);
     overflow-x: hidden;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+h1, h2, h3, h4, h5 {
+    margin: 0 0 1rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================================
+   3. LAYOUT (contenedor + grid)
+========================================================= */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* =========================================================
+   4. BOTONES
+========================================================= */
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline-success {
+    background-color: transparent;
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--success-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   5. TARJETAS (cards)
+========================================================= */
+.card {
+    height: 100%;
+    background: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1.75rem;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--secondary-color);
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   6. NAVEGACIÓN
+========================================================= */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 .navbar {
+    background-color: var(--dark-bg);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-.navbar-brand {
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.nav-brand {
+    color: var(--primary-color);
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
-    color: var(--primary-color) !important;
 }
 
-.navbar-nav .nav-link {
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
     margin-left: 1rem;
+}
+
+.nav-link {
+    color: var(--primary-color);
     font-weight: 500;
-    color: var(--primary-color) !important;
+    padding: 0.5rem 0;
+    display: inline-block;
     transition: var(--transition);
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-    color: var(--text-light) !important;
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-light);
 }
 
-/* =========================
-   HERO SECTION
-========================= */
+/* Toggle de menú móvil (checkbox oculto + etiqueta hamburguesa) */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label::before,
+.nav-toggle-label::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* =========================================================
+   7. SECCIÓN HERO
+========================================================= */
 .hero-section {
     background-image: url('/src/img/image.png');
+    background-size: cover;
+    background-position: center;
     min-height: 500px;
     display: flex;
     align-items: center;
@@ -65,50 +244,94 @@ body {
 .hero-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: url('https://www.transparenttextures.com/patterns/cubes.png');
     opacity: 0.1;
 }
 
-.hero-section h1 {
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
     animation: slideDown 0.8s ease-out forwards;
 }
 
-.hero-section p {
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
     animation: slideUp 0.8s ease-out 0.2s forwards;
     opacity: 0;
 }
 
-.hero-section .btn {
+.hero-content .btn {
     animation: slideUp 0.8s ease-out 0.4s forwards;
     opacity: 0;
 }
 
-/* =========================
-   FEATURES
-========================= */
-.features {
-    background-color: #3A3E6C;
+/* =========================================================
+   8. SECCIÓN CARACTERÍSTICAS
+========================================================= */
+.features-section {
+    background-color: var(--body-bg);
+    padding: 3rem 0;
 }
 
-.features .card {
-    border: none;
-    transition: var(--transition);
-    border-radius: 12px;
-    background: #959BB5;
+.features-section .card {
+    background: var(--feature-card-bg);
 }
 
-.features .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+/* =========================================================
+   9. SECCIÓN CTA
+========================================================= */
+.cta-section {
+    background-color: var(--body-bg);
+    padding: 3rem 0;
 }
 
-/* =========================
-   SERVICIOS
-========================= */
+.cta-content {
+    text-align: center;
+    color: var(--cta-text-color);
+}
+
+.cta-content .lead {
+    font-size: 1.2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* =========================================================
+   10. PIE DE PÁGINA
+========================================================= */
+.site-footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+.footer-copy {
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.site-footer small {
+    color: var(--primary-color);
+}
+
+/* =========================================================
+   11. OTRAS PÁGINAS (servicios, etc.)
+========================================================= */
 .servicios-section {
     background: linear-gradient(135deg, var(--dark-bg), #1c1f26);
     color: var(--text-light);
@@ -123,7 +346,7 @@ body {
 }
 
 .subtitulo-animado {
-    color: var(--text-muted) !important;
+    color: var(--text-muted);
     animation: slideUp 1s ease-out;
 }
 
@@ -163,94 +386,264 @@ body {
     transform: rotate(10deg) scale(1.1);
 }
 
-/* =========================
-   CTA SECTION
-========================= */
-.cta-section {
-    background-color: #3A3E6C;
-}
-
-.cta-section div {
-    color: #DCDCF0;
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-    background-color: var(--dark-bg) !important;
-    color: var(--text-light) !important;
-}
-
-footer p {
-    color: var(--primary-color) !important;
-}
-
-footer small {
-    color: var(--primary-color) !important;
-}
-
-/* =========================
-   ANIMACIONES
-========================= */
+/* =========================================================
+   12. ANIMACIONES
+========================================================= */
 @keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-40px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes reveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
     from { opacity: 0; }
-    to { opacity: 1; }
+    to   { opacity: 1; }
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   13. RESPONSIVE
+========================================================= */
 @media (max-width: 768px) {
-    .navbar-nav .nav-link {
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .nav-toggle:checked ~ .nav-menu {
+        display: flex;
+    }
+
+    .nav-item {
         margin-left: 0;
+    }
+
+    .nav-link {
         padding: 0.75rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
     }
 
     .hero-section {
         min-height: 400px;
     }
 
-    .hero-section h1 {
-        font-size: 2.5rem;
+    .hero-title {
+        font-size: 2rem;
     }
 
     .titulo-animado {
         font-size: 2.5rem;
     }
 
-    .cta-section .btn-group {
+    .cta-buttons {
         flex-direction: column;
-        gap: 1rem;
+        align-items: center;
     }
+}
+.hero-badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    color:white;
+    padding:8px 18px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-weight:600;
+    backdrop-filter:blur(5px);
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.hero-title{
+    max-width:850px;
+    margin:auto;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.hero-subtitle{
+    max-width:700px;
+    margin:auto;
+    margin-bottom:30px;
+}
+
+/*==============================
+CONTACTOS
+===============================*/
+
+.contacto-hero{
+
+    padding:90px 20px;
+
+    text-align:center;
+
+    color:white;
+
+    background:linear-gradient(rgba(10,17,35,.75),rgba(10,17,35,.75)),
+    url("../img/image.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+.contacto-hero h1{
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+
+}
+
+.contacto-hero p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#f1f1f1;
+
+}
+
+.contacto-section{
+
+    padding:70px 0;
+
+}
+
+.contacto-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.2fr;
+
+    gap:40px;
+
+}
+
+.info-contacto h2,
+.formulario-contacto h2{
+
+    color:var(--primary-color);
+
+    margin-bottom:25px;
+
+}
+
+.info-card{
+
+    background:var(--feature-card-bg);
+
+    padding:20px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    transition:.3s;
+
+}
+
+.info-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.info-card h3{
+
+    margin-bottom:10px;
+
+}
+
+.formulario-contacto{
+
+    background:var(--dark-bg);
+
+    padding:35px;
+
+    border-radius:15px;
+
+}
+
+.formulario-contacto form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+.formulario-contacto textarea{
+
+    resize:none;
+
+}
+
+.formulario-contacto button{
+
+    width:220px;
+
+}
+
+@media(max-width:768px){
+
+.contacto-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.formulario-contacto button{
+
+width:100%;
+
+}
+
+.contacto-hero h1{
+
+font-size:2.2rem;
+
+}
+
 }
