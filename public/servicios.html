@@ -17,9 +17,7 @@
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">
-                <strong>Mi Sitio Web</strong>
-            </a>
+            <a class="navbar-brand nav-brand" href="../index.html">Toy World</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -45,10 +43,167 @@
     </nav>
 
     <!-- Contenido Principal -->
-  
-    <div class="container">
-        <h1>Nuestros Servicios</h1>
-    </div>
+
+    <!-- Encabezado oscuro similar a la imagen -->
+    <section class="hero-servicios py-5">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-12 text-white">
+                    <h1 class="titulo-animado">Servicios</h1>
+                    <nav aria-label="breadcrumb" class="mt-2">
+                        <ol class="breadcrumb" style="background:transparent;padding:0;">
+                            <li class="breadcrumb-item"><a href="../index.html" style="color:var(--primary-color);">Inicio</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Servicios</li>
+                        </ol>
+                    </nav>
+                    <p class="subtitulo-animado" style="max-width:900px;">Somos una juguetería con cobertura nacional, especializada en importación, exportación y comercialización de juguetes al por mayor y al detal. Ofrecemos múltiples sedes, pagos en efectivo y por transferencia, además de servicios logísticos y comerciales para empresas y particulares.</p>
+                    <div class="info-box mt-3">Aspiramos al máximo posible en nuestra forma de trabajar para ofrecer el mejor servicio a nuestros clientes.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Área clara con tarjetas de servicios -->
+    <section class="services-grid py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 16s2 2 6 2 6-2 6-2 4 2 6 2v2H2v-2z" fill="currentColor" />
+                                <path d="M6 10l6-4 6 4v2H6v-2z" fill="currentColor" />
+                                <rect x="11" y="3" width="2" height="5" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Importación</h5>
+                        <p class="card-text">Gestión de importaciones desde fabricantes internacionales con control de calidad y logística.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="9" fill="currentColor" />
+                                <path d="M2 12h20" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+                                <path d="M12 2v20" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+                                <path d="M5 5c3 3 11 3 14 0" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" />
+                                <path d="M5 19c3-3 11-3 14 0" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Exportación</h5>
+                        <p class="card-text">Exportamos productos a mercados regionales, con documentación y transporte asegurado.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="7" width="7" height="6" rx="1" fill="currentColor" />
+                                <rect x="14" y="7" width="7" height="6" rx="1" fill="currentColor" />
+                                <rect x="3" y="15" width="18" height="4" rx="1" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Venta al por mayor</h5>
+                        <p class="card-text">Suministro para distribuidores y comercios con precios competitivos y condiciones flexibles.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 2h12l2 6v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8l2-6z" fill="currentColor" />
+                                <rect x="8" y="9" width="8" height="2" rx="0.5" fill="rgba(0,0,0,0.12)" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Venta al detal</h5>
+                        <p class="card-text">Tienda para clientes finales con catálogo actualizado y atención personalizada.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="8" width="14" height="6" rx="1" fill="currentColor" />
+                                <rect x="17" y="9" width="5" height="4" rx="1" fill="currentColor" />
+                                <circle cx="7" cy="18" r="1.6" fill="currentColor" />
+                                <circle cx="18" cy="18" r="1.6" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Logística y distribución</h5>
+                        <p class="card-text">Almacenamiento, preparación de pedidos y distribución nacional e internacional.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="1" fill="currentColor" />
+                                <rect x="7" y="7" width="3" height="3" fill="rgba(0,0,0,0.12)" />
+                                <rect x="14" y="7" width="3" height="3" fill="rgba(0,0,0,0.12)" />
+                                <rect x="7" y="14" width="3" height="3" fill="rgba(0,0,0,0.12)" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Sedes y atención</h5>
+                        <p class="card-text">Varias sucursales para atención comercial y corporativa en todo el país.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 3l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 21l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M14 7l3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Servicio técnico y garantía</h5>
+                        <p class="card-text">Soporte, garantía y reparación de productos cuando aplique.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="14" rx="1" fill="currentColor" />
+                                <rect x="3" y="17" width="18" height="4" rx="1" fill="currentColor" />
+                                <rect x="5" y="6" width="6" height="2" fill="rgba(0,0,0,0.12)" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Presupuestos sin compromiso</h5>
+                        <p class="card-text">Cotizaciones personalizadas para compras al por mayor y proyectos corporativos.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card servicio-card p-4 h-100">
+                        <div class="icono" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="6" width="20" height="12" rx="1" fill="currentColor" />
+                                <rect x="3" y="9" width="6" height="2" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Pagos y condiciones</h5>
+                        <p class="card-text">Aceptamos efectivo y transferencias bancarias, y ofrecemos facilidades para clientes frecuentes.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="p-3 additional-box">
+                        <strong>Servicios adicionales:</strong> Asesoría en regulaciones y certificaciones, personalización de productos y packaging, tasaciones comerciales y gestión de documentación aduanera.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 mt-5">
