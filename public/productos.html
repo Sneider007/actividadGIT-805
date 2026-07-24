@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - Mi Sitio Web</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/styles/style.css">
     <style>
         :root {
             --accent: #6c63ff;
@@ -19,15 +20,6 @@
             background: #f8f9fa;
             overflow-x: hidden;
         }
-
-        /* NAV */
-        .navbar {
-            background: #111 !important;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-        }
-        .navbar-brand strong { color: #fff; letter-spacing: 1px; }
-        .nav-link { color: rgba(255,255,255,0.75) !important; transition: color .3s; }
-        .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
 
         /* HERO */
         .hero-section {
@@ -383,18 +375,28 @@
 <body>
 
     <!-- Navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html"><strong>Mundo Jugutes</strong></a>
+            <a class="navbar-brand nav-brand" href="../index.html">Mundo Juguetes</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactos.html">Contactos</a>
+                    </li>
                 </ul>
             </div>
         </div>
