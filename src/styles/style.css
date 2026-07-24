@@ -333,11 +333,8 @@ a {
 /* =========================================================
    11. OTRAS PÁGINAS (servicios, etc.)
 ========================================================= */
-.servicios-section {
-    background: linear-gradient(135deg, var(--dark-bg), #1c1f26);
-    color: var(--text-light);
-    position: relative;
-}
+/* Sección de servicios: encabezado oscuro y área clara de tarjetas */
+.servicios-section { }
 
 .titulo-animado {
     font-size: 3rem;
@@ -351,40 +348,117 @@ a {
     animation: slideUp 1s ease-out;
 }
 
-.servicio-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    transition: var(--transition);
-    opacity: 0;
-    transform: translateY(30px);
-    animation: reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+/* Encabezado oscuro para servicios */
+.hero-servicios {
+    background: var(--dark-bg);
+    padding: 3.5rem 0;
+}
+.hero-servicios .titulo-animado {
+    color: var(--primary-color);
 }
 
-.servicio-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    border-color: var(--primary-color);
+/* Ajustes para la marca en la navbar */
+.nav-brand {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
-
-.servicio-card .card-title {
-    color: #fff;
-    font-weight: 700;
-}
-
-.servicio-card .card-text {
+.hero-servicios .subtitulo-animado {
     color: var(--text-muted);
 }
 
-.icono {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    transition: var(--transition);
+/* Caja informativa clara-azulada dentro del encabezado */
+.info-box {
+    background: rgba(211,235,247,0.95);
+    color: #15394a;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    margin-top: 1rem;
 }
 
-.servicio-card:hover .icono {
-    transform: rotate(10deg) scale(1.1);
+/* Sección de tarjetas sobre fondo claro, como en la imagen */
+.services-grid {
+    background: var(--body-bg); /* mismo color que el index */
+    padding: 3rem 0 4rem 0;
+}
+
+.services-grid .servicio-card {
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding-left: 0;
+    border-radius: 8px;
+    transition: none; /* quitar animaciones */
+    box-shadow: none;
+}
+
+.services-grid .card-title {
+    color: #2b3e49;
+    font-weight: 700;
+}
+
+.services-grid .card-text {
+    color: #6c757d;
+}
+
+.services-grid .servicio-card:hover {
+    transform: none; /* sin movimiento al hacer hover */
+    box-shadow: none;
+}
+
+/* Ajustes finales: fondo oscuro para cada tarjeta e iconos dorados */
+.services-grid .servicio-card {
+    background: rgb(10,17,35); /* #0A1123 */
+    padding: 1.25rem;
+}
+
+.services-grid .servicio-card .card-title {
+    color: var(--text-light);
+}
+
+.services-grid .servicio-card .card-text {
+    color: #9aa3ad;
+}
+
+.services-grid .servicio-card .icono svg {
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%; /* círculo */
+    background: var(--primary-color); /* fondo del círculo */
+    padding: 0;
+}
+
+.services-grid .servicio-card .icono svg {
+    display: block;
+    width: 32px;
+    height: 32px;
+    color: #000000; /* iconos en negro */
+    fill: currentColor;
+    transition: none; /* sin animación en icono */
+    background: #e9ecef;
+    color: #495057;
+    padding: 14px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-grid .servicio-card .icono:hover {
+    transform: none;
+}
+
+.additional-box {
+    background: #ffffff;
+    color: #495057;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 3px rgba(16,24,40,0.08);
 }
 
 /* =========================================================
@@ -493,6 +567,22 @@ a {
 /*==============================
 CONTACTOS
 ===============================*/
+.navbar-contact{
+    background-color: var(--dark-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-contact{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_div{
+    display: flex;
+    align-items: center;
+}
 
 .contacto-hero{
 
