@@ -65,6 +65,19 @@
         }
         .hero-title span { color: var(--accent); }
         .hero-subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.65); max-width: 540px; margin-bottom: 36px; }
+        .hero-cta {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 32px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background .25s, transform .15s;
+        }
+        .hero-cta:hover { background: var(--accent-dark); color: #fff; transform: translateY(-2px); }
 
         /* SEARCH / FILTER */
         .filter-bar {
@@ -114,6 +127,12 @@
             font-size: 60px;
             position: relative;
             overflow: hidden;
+        }
+        .product-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 12px;
         }
         .product-card-badge {
             position: absolute;
@@ -179,6 +198,186 @@
         .product-card { opacity: 0; transform: translateY(40px); }
         .stat-item { opacity: 0; transform: translateY(30px); }
         .filter-bar { opacity: 0; transform: translateY(20px); }
+
+        @media (max-width: 767.98px) {
+            .navbar-brand {
+                max-width: calc(100% - 56px);
+                white-space: normal;
+                line-height: 1.2;
+                font-size: 1rem;
+            }
+
+            .hero-section {
+                padding: 72px 0 56px;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 28px;
+            }
+
+            .filter-bar {
+                padding: 18px;
+                margin-bottom: 32px;
+            }
+
+            .filter-bar input {
+                max-width: none !important;
+                width: 100%;
+            }
+
+            .filter-bar > div {
+                width: 100%;
+            }
+
+            .filter-bar .filter-btn {
+                flex: 1 1 auto;
+            }
+
+            .product-card-img {
+                height: 180px;
+                font-size: 48px;
+            }
+
+            .product-card-body {
+                padding: 16px;
+            }
+
+            .product-card-price span {
+                display: block;
+                margin-left: 0;
+            }
+
+            .stats-section {
+                padding: 48px 0;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .cart-toast {
+                right: 16px;
+                bottom: 16px;
+                left: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 479.98px) {
+            #product-grid > [data-cat] {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .filter-bar .filter-btn {
+                flex-basis: 100%;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* =========================================================
+           MODAL DE DETALLE DE PRODUCTO
+        ========================================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 30, 0.6);
+            backdrop-filter: blur(2px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal-overlay.activo { display: flex; }
+
+        .modal-producto {
+            background: #fff;
+            border-radius: 20px;
+            max-width: 480px;
+            width: 100%;
+            max-height: 95vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 14px; right: 16px;
+            background: rgba(255,255,255,0.85);
+            border: none;
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            line-height: 1;
+            color: #333;
+            cursor: pointer;
+            z-index: 5;
+            transition: background .2s;
+        }
+        .modal-cerrar:hover { background: #fff; }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            min-height: 180px;
+            max-height: 52vh;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .modal-img img {
+            width: 100%;
+            height: auto;
+            max-height: 52vh;
+            object-fit: contain;
+            padding: 12px;
+            display: block;
+        }
+
+        @media (max-width: 767.98px) {
+            .modal-overlay {
+                padding: .5rem;
+            }
+
+            .modal-img {
+                min-height: 150px;
+                max-height: 40vh;
+            }
+
+            .modal-img img {
+                max-height: 40vh;
+            }
+
+            .modal-body-producto {
+                padding: 18px 22px 22px;
+            }
+        }
+
+        .modal-body-producto { padding: 24px 28px 28px; }
+        .modal-titulo { font-size: 1.3rem; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+        .modal-descripcion { font-size: 14px; color: #777; line-height: 1.6; margin-bottom: 18px; }
+
+        .modal-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #f8f9fb;
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+        }
+        .modal-specs .spec-item { display: flex; justify-content: space-between; font-size: 13px; }
+        .modal-specs .spec-item span:first-child { color: #999; }
+        .modal-specs .spec-item span:last-child { color: #1a1a2e; font-weight: 600; }
+
+        .modal-precio { font-size: 1.7rem; font-weight: 700; color: var(--accent); margin-bottom: 18px; }
     </style>
 </head>
 <body>
@@ -201,7 +400,199 @@
         </div>
     </nav>
 
-   
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="container">
+            <span class="hero-badge">TIENDA OTAKU</span>
+            <h1 class="hero-title">Figuras de <span>anime</span> coleccionables</h1>
+            <p class="hero-subtitle">
+                Dragon Ball, One Piece, Naruto y Demon Slayer en figuras originales,
+                pintadas a mano y listas para tu vitrina.
+            </p>
+            <a href="#product-grid" class="hero-cta">Ver catálogo</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- BARRA DE BÚSQUEDA Y FILTROS -->
+        <div class="filter-bar d-flex flex-wrap align-items-center justify-content-between gap-3 mt-5">
+            <input type="text" class="form-control" style="max-width: 280px;" placeholder="Buscar figura...">
+            <div class="d-flex flex-wrap gap-2">
+                <button class="filter-btn active" data-cat="all">Todos</button>
+                <button class="filter-btn" data-cat="dragon-ball">Dragon Ball</button>
+                <button class="filter-btn" data-cat="one-piece">One Piece</button>
+                <button class="filter-btn" data-cat="naruto">Naruto</button>
+                <button class="filter-btn" data-cat="demon-slayer">Demon Slayer</button>
+            </div>
+        </div>
+
+        <!-- GRID DE PRODUCTOS -->
+        <div class="row g-4 mb-5" id="product-grid">
+
+            <!-- Goku -->
+            <div class="col-6 col-md-4 col-lg-3" data-cat="dragon-ball" data-id="1">
+                <div class="product-card h-100">
+                    <div class="product-card-img" style="background: linear-gradient(135deg, #0A1123, #0A1123);">
+                        <span class="product-card-badge badge-popular">Popular</span>
+                        <img src="../src/img/ChatGPT Image 23 jul 2026, 08_56_51 p.m..png" alt="Figura de Goku Ultra Instinto">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Goku Ultra Instinto</h3>
+                        <p class="product-card-desc">PVC 24cm · escala 1/8</p>
+                        <div class="product-card-price">$120.000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vegeta -->
+            <div class="col-6 col-md-4 col-lg-3" data-cat="dragon-ball" data-id="2">
+                <div class="product-card h-100">
+                    <div class="product-card-img" style="background: linear-gradient(135deg, #0A1123, #0A1123);">
+                        <span class="product-card-badge badge-nuevo">Nuevo</span>
+                        <img src="../src/img/ChatGPT Image 23 jul 2026, 09_11_27 p.m..png" alt="Figura de Vegeta Super Saiyan Blue">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Vegeta Super Saiyan Blue</h3>
+                        <p class="product-card-desc">PVC / ABS 22cm · escala 1/8</p>
+                        <div class="product-card-price">$115.000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Luffy -->
+            <div class="col-6 col-md-4 col-lg-3" data-cat="one-piece" data-id="3">
+                <div class="product-card h-100">
+                    <div class="product-card-img" style="background: linear-gradient(135deg, #0A1123, #0A1123);">
+                        <span class="product-card-badge badge-popular">Popular</span>
+                        <img src="../src/img/ChatGPT Image 23 jul 2026, 09_14_40 p.m..png" alt="Figura de Luffy Gear 5">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Luffy Gear 5</h3>
+                        <p class="product-card-desc">PVC 25cm · escala 1/7</p>
+                        <div class="product-card-price">$135.000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zoro -->
+            <div class="col-6 col-md-4 col-lg-3" data-cat="one-piece" data-id="4">
+                <div class="product-card h-100">
+                    <div class="product-card-img" style="background: linear-gradient(135deg, #0A1123, #0A1123);">
+                        <span class="product-card-badge badge-oferta">Oferta</span>
+                        <img src="../src/img/ChatGPT Image 23 jul 2026, 09_16_30 p.m..png" alt="Figura de Roronoa Zoro">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Roronoa Zoro</h3>
+                        <p class="product-card-desc">PVC 23cm · escala 1/8</p>
+                        <div class="product-card-price">$110.000 <span>$130.000</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Naruto -->
+            <div class="col-6 col-md-4 col-lg-3" data-cat="naruto" data-id="5">
+                <div class="product-card h-100">
+                    <div class="product-card-img" style="background: linear-gradient(135deg, #0A1123, #0A1123);">
+                        <img src="../src/img/WhatsApp Image 2026-07-23 at 9.24.04 PM.jpeg" alt="Figura de Naruto Modo Sabio">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Naruto Modo Sabio</h3>
+                        <p class="product-card-desc">PVC 21cm · escala 1/8</p>
+                        <div class="product-card-price">$105.000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sasuke -->
+            <div class="col-6 col-md-4 col-lg-3" data-cat="naruto" data-id="6">
+                <div class="product-card h-100">
+                    <div class="product-card-img" style="background: linear-gradient(135deg, #0A1123, #0A1123);">
+                        <span class="product-card-badge badge-nuevo">Nuevo</span>
+                        <img src="../src/img/ChatGPT Image 23 jul 2026, 09_21_43 p.m..png" alt="Figura de Sasuke Susanoo">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Sasuke Susanoo</h3>
+                        <p class="product-card-desc">PVC / Resina 26cm · escala 1/6</p>
+                        <div class="product-card-price">$140.000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tanjiro -->
+            <div class="col-6 col-md-4 col-lg-3" data-cat="demon-slayer" data-id="7">
+                <div class="product-card h-100">
+                    <div class="product-card-img" style="background: linear-gradient(135deg, #0A1123, #0A1123);">
+                        <img src="../src/img/ChatGPT Image 23 jul 2026, 09_29_11 p.m..png" alt="Figura de Tanjiro Kamado">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Tanjiro Kamado</h3>
+                        <p class="product-card-desc">PVC 22cm · escala 1/8</p>
+                        <div class="product-card-price">$118.000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nezuko -->
+            <div class="col-6 col-md-4 col-lg-3" data-cat="demon-slayer" data-id="8">
+                <div class="product-card h-100">
+                    <div class="product-card-img" style="background: linear-gradient(135deg, #0A1123, #0A1123);">
+                        <span class="product-card-badge badge-oferta">Oferta</span>
+                        <img src="../src/img/ChatGPT Image 23 jul 2026, 09_33_20 p.m..png" alt="Figura de Nezuko Kamado">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Nezuko Kamado</h3>
+                        <p class="product-card-desc">PVC 20cm · edición limitada</p>
+                        <div class="product-card-price">$118.000 <span>$135.000</span></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-3 stat-item">
+                    <div class="stat-number" data-target="1850">0</div>
+                    <div class="stat-label">Figuras vendidas</div>
+                </div>
+                <div class="col-6 col-md-3 stat-item">
+                    <div class="stat-number" data-target="4">0</div>
+                    <div class="stat-label">Series disponibles</div>
+                </div>
+                <div class="col-6 col-md-3 stat-item">
+                    <div class="stat-number" data-target="980">0</div>
+                    <div class="stat-label">Clientes felices</div>
+                </div>
+                <div class="col-6 col-md-3 stat-item">
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">% originales garantizados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE DETALLE DE PRODUCTO -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-producto">
+            <button class="modal-cerrar" id="modal-cerrar" aria-label="Cerrar">&times;</button>
+            <div class="modal-img" id="modal-img">
+                <span class="product-card-badge" id="modal-badge" style="display:none;"></span>
+                <span id="modal-icono">🐉</span>
+            </div>
+            <div class="modal-body-producto">
+                <h3 class="modal-titulo" id="modal-titulo">Nombre de la figura</h3>
+                <p class="modal-descripcion" id="modal-descripcion">Descripción</p>
+                <div class="modal-specs" id="modal-specs"></div>
+                <div class="modal-precio" id="modal-precio">$0</div>
+                <button class="btn-add" id="modal-btn-comprar">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast notification -->
     <div class="cart-toast" id="toast">🛒 Producto agregado al carrito</div>
@@ -276,17 +667,21 @@
 
         // ── Add to cart button ──────────────────────────────────────
         const toast = document.getElementById("toast");
+
+        function mostrarToast() {
+            gsap.killTweensOf(toast);
+            gsap.to(toast, { opacity: 1, y: 0, duration: .4, ease: "power2.out" });
+            gsap.to(toast, { opacity: 0, y: 20, duration: .4, delay: 2.2, ease: "power2.in" });
+        }
+
         document.querySelectorAll(".btn-add").forEach(btn => {
-            btn.addEventListener("click", function() {
-                // Button bounce
+            // los botones dentro de las tarjetas del grid no deben abrir el modal
+            btn.addEventListener("click", function(e) {
+                e.stopPropagation();
                 gsap.timeline()
                     .to(this, { scale: .92, duration: .1 })
                     .to(this, { scale: 1, duration: .3, ease: "elastic.out(1,.5)" });
-
-                // Toast
-                gsap.killTweensOf(toast);
-                gsap.to(toast, { opacity: 1, y: 0, duration: .4, ease: "power2.out" });
-                gsap.to(toast, { opacity: 0, y: 20, duration: .4, delay: 2.2, ease: "power2.in" });
+                mostrarToast();
             });
         });
 
@@ -336,6 +731,100 @@
         document.querySelectorAll(".nav-link").forEach(link => {
             link.addEventListener("mouseenter", () => gsap.to(link, { letterSpacing: ".5px", duration: .2 }));
             link.addEventListener("mouseleave", () => gsap.to(link, { letterSpacing: "0px", duration: .2 }));
+        });
+
+        // =========================================================
+        // ── MODAL DE DETALLE DE PRODUCTO ────────────────────────
+        // =========================================================
+
+        // Ficha técnica completa de cada figura (por data-id de la tarjeta)
+        const fichasProducto = {
+            1: { descripcion: "Figura de colección basada en el arco del Torneo del Poder, capturando la forma Ultra Instinto de Goku en plena batalla.", material: "PVC de alta calidad", tamano: "24 cm", escala: "1/8", stock: "Disponible" },
+            2: { descripcion: "Vegeta en su transformación Super Saiyan Blue, con base temática y pintura detallada a mano.", material: "PVC / ABS", tamano: "22 cm", escala: "1/8", stock: "Disponible" },
+            3: { descripcion: "Edición especial de Luffy en su forma Gear 5, con efectos de nube y detalles pintados a mano.", material: "PVC de alta calidad", tamano: "25 cm", escala: "1/7", stock: "Últimas unidades" },
+            4: { descripcion: "Zoro en pose de combate con sus tres katanas, ideal para displays temáticos de piratas.", material: "PVC", tamano: "23 cm", escala: "1/8", stock: "Disponible" },
+            5: { descripcion: "Naruto en Modo Sabio con efectos de chakra translúcido y base de exhibición incluida.", material: "PVC", tamano: "21 cm", escala: "1/8", stock: "Disponible" },
+            6: { descripcion: "Figura a gran escala de Sasuke junto a su Susanoo, pieza central para cualquier vitrina.", material: "PVC / Resina", tamano: "26 cm", escala: "1/6", stock: "Pocas unidades" },
+            7: { descripcion: "Tanjiro en plena técnica de Respiración de Agua, con efectos de agua tallados en resina translúcida.", material: "PVC", tamano: "22 cm", escala: "1/8", stock: "Disponible" },
+            8: { descripcion: "Edición limitada de Nezuko en su forma de combate, con caja coleccionable incluida.", material: "PVC", tamano: "20 cm", escala: "1/8", stock: "Edición limitada" }
+        };
+
+        const overlay = document.getElementById("modal-overlay");
+        const modalImg = document.getElementById("modal-img");
+        const modalIcono = document.getElementById("modal-icono");
+        const modalBadge = document.getElementById("modal-badge");
+        const modalTitulo = document.getElementById("modal-titulo");
+        const modalDescripcion = document.getElementById("modal-descripcion");
+        const modalSpecs = document.getElementById("modal-specs");
+        const modalPrecio = document.getElementById("modal-precio");
+        const modalBtnComprar = document.getElementById("modal-btn-comprar");
+
+        function abrirModal(col) {
+            const id = col.dataset.id;
+            const ficha = fichasProducto[id];
+            const card = col.querySelector(".product-card");
+
+            const imagen = card.querySelector(".product-card-img img");
+            const icono = card.querySelector(".product-card-img").lastChild.textContent || card.querySelector(".product-card-img").textContent;
+            const titulo = card.querySelector(".product-card-title").textContent;
+            const precio = card.querySelector(".product-card-price").firstChild.textContent.trim();
+            const fondo = card.querySelector(".product-card-img").style.background;
+            const badgeEl = card.querySelector(".product-card-badge");
+
+            modalImg.style.background = fondo;
+            if (imagen) {
+                modalIcono.innerHTML = '<img src="' + imagen.src + '" alt="' + imagen.alt + '">';
+            } else {
+                modalIcono.textContent = icono.trim();
+            }
+            modalTitulo.textContent = titulo;
+            modalPrecio.textContent = precio;
+
+            if (badgeEl) {
+                modalBadge.textContent = badgeEl.textContent;
+                modalBadge.className = "product-card-badge " + badgeEl.classList[1];
+                modalBadge.style.display = "inline-block";
+                modalBadge.style.position = "absolute";
+                modalBadge.style.top = "14px";
+                modalBadge.style.left = "14px";
+            } else {
+                modalBadge.style.display = "none";
+            }
+
+            if (ficha) {
+                modalDescripcion.textContent = ficha.descripcion;
+                modalSpecs.innerHTML =
+                    '<div class="spec-item"><span>Material</span><span>' + ficha.material + '</span></div>' +
+                    '<div class="spec-item"><span>Tamaño</span><span>' + ficha.tamano + '</span></div>' +
+                    '<div class="spec-item"><span>Escala</span><span>' + ficha.escala + '</span></div>' +
+                    '<div class="spec-item"><span>Disponibilidad</span><span>' + ficha.stock + '</span></div>';
+            }
+
+            modalBtnComprar.dataset.id = id;
+            overlay.classList.add("activo");
+        }
+
+        function cerrarModal() {
+            overlay.classList.remove("activo");
+        }
+
+        document.getElementById("product-grid").addEventListener("click", function(e) {
+            if (e.target.closest(".btn-add")) return; // el botón de comprar no abre el modal
+            const col = e.target.closest("[data-id]");
+            if (col) abrirModal(col);
+        });
+
+        document.getElementById("modal-cerrar").addEventListener("click", cerrarModal);
+        overlay.addEventListener("click", function(e) {
+            if (e.target === overlay) cerrarModal();
+        });
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") cerrarModal();
+        });
+
+        modalBtnComprar.addEventListener("click", function() {
+            mostrarToast();
+            cerrarModal();
         });
     </script>
 </body>
