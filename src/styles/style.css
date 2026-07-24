@@ -567,6 +567,22 @@ a {
 /*==============================
 CONTACTOS
 ===============================*/
+.navbar-contact{
+    background-color: var(--dark-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-contact{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_div{
+    display: flex;
+    align-items: center;
+}
 
 .contacto-hero{
 
