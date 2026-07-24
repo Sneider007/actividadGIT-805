@@ -722,3 +722,34 @@ font-size:2.2rem;
 }
 
 }
+/*Magno*/
+/* Perfil estilo Google */
+
+.navbar .dropdown-toggle::after{
+    display:none;
+}
+
+.navbar img{
+    object-fit:cover;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.navbar img:hover{
+    transform:scale(1.08);
+}
+
+.dropdown-menu{
+    animation:aparecer .25s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
